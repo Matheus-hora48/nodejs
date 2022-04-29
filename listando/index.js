@@ -9,13 +9,16 @@ fs.readdir('./')
 */
 
 async function readdir(rootDir) {
-  rootDir = rootDir || path.resolve(_dirname)
+  rootDir = rootDir || path.resolve(__dirname)
   const files = await fs.readdir(rootDir)
   walk(files)
 }
-function walk(files) {
+
+async function walk(files, rootDir) {
   for (let file of files) {
-    console.log(file)
+    const fileFullPath = path.resolve(rootDir, file)
+    const stats = await fs.stat(fileFullPath)
+    console.log(file, stats.isDirectory())
   }
-}
-readdir()
+}+
+readdir('MeusProjetos/nodejs')
