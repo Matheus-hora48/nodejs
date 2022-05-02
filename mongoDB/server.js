@@ -8,6 +8,7 @@ mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifie
   .then(() => {
     app.emit('Pronto')
   })
+  .catch(e => console.log(e))
 
 const routes = require('./routes');
 const path = require('path')
