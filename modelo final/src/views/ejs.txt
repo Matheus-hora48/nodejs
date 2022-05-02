@@ -8,4 +8,4 @@
   <%= exibe alguma coisa %>
 <% } else { %>
   <%= exibe outra coisa %>
-<% } %>
+<% } %> 
